@@ -1,0 +1,68 @@
+local lib = loadstring(game:HttpGet 'https://raw.githubusercontent.com/airesz178/Ui-Library/main/vape%20ui')()
+
+local win = lib:Window('Lib', Color3.fromRGB(44, 120, 224), Enum.KeyCode.RightControl)
+
+local tab = win:Tab('Tab 1')
+
+tab:Button(
+    'Button',
+    function()
+        lib:Notification('Notification', 'Hello!', 'Hi!')
+    end
+)
+
+tab:Toggle(
+    'Toggle',
+    false,
+    function(v)
+    end
+)
+
+tab:Slider(
+    'Slider',
+    0,
+    100,
+    30,
+    function(v)
+    end
+)
+
+tab:Dropdown(
+    'Dropdown',
+    {'Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5'},
+    function(v)
+    end
+)
+
+tab:Colorpicker(
+    'Colorpicker',
+    Color3.fromRGB(255, 0, 0),
+    function(v)
+    end
+)
+
+tab:Textbox(
+    'Textbox',
+    true,
+    function(v)
+    end
+)
+
+tab:Bind(
+    'Bind',
+    Enum.KeyCode.RightShift,
+    function()
+    end
+)
+
+tab:Label('Label')
+
+local changeclr = win:Tab('Change UI Color')
+
+changeclr:Colorpicker(
+    'Change UI Color',
+    Color3.fromRGB(44, 120, 224),
+    function(v)
+        lib:ChangePresetColor(Color3.fromRGB(t.R * 255, t.G * 255, t.B * 255))
+    end
+)

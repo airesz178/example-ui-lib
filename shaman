@@ -1,4 +1,5 @@
-local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/Shaman.lua'))()
+local Library = loadstring(game:HttpGet(
+    'https://raw.githubusercontent.com/airesz178/Ui-Library/main/Shaman%20Ui%20Library'))()
 local Flags = Library.Flags
 
 local Window = Library:Window({
@@ -105,7 +106,7 @@ local label = Section3:Label({
 
 local dropdown = Section:Dropdown({
     Text = "Dropdown",
-    List = {"Head","Torso","Random"},
+    List = {"Head", "Torso", "Random"},
     Flag = "Choosen",
     Callback = function(v)
         warn(v)
@@ -114,7 +115,7 @@ local dropdown = Section:Dropdown({
 
 Section:RadioButton({
     Text = "RadioButton",
-    Options = {"Legit","Blatant"},
+    Options = {"Legit", "Blatant"},
     Callback = function(v)
         warn(v)
     end

@@ -1,6 +1,3 @@
-if game.CoreGui:FindFirstChild("ScreenGui") then
-game.CoreGui.ScreenGui:Destroy()
-end
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
@@ -43,6 +40,7 @@ local Tabs = {
             
         end
         })
+        Toggle:SetValue(true)
     local Slider = Tabs.Main:AddSlider("Slider", {
         Title = "Slider",
         Description = "This is a slider",
@@ -54,7 +52,7 @@ local Tabs = {
             
         end
     })
-    
+    Slider:SetValue(3)
     
     
     local Dropdown = Tabs.Main:AddDropdown("Dropdown", {
@@ -66,7 +64,7 @@ local Tabs = {
             
         end
     })
-    
+    Dropdown:SetValue("four")
     local MultiDropdown = Tabs.Main:AddDropdown("MultiDropdown", {
         Title = "Dropdown",
         Description = "You can select multiple values.",
@@ -77,6 +75,11 @@ local Tabs = {
             
         end
     })
+    MultiDropdown:SetValue({
+        three = true,
+        five = true,
+        seven = false
+    })
     local Colorpicker = Tabs.Main:AddColorpicker("Colorpicker", {
         Title = "Colorpicker",
         Default = Color3.fromRGB(96, 205, 255),
@@ -84,6 +87,7 @@ local Tabs = {
             
         end
     })
+    Colorpicker:SetValueRGB(Color3.fromRGB(0, 255, 140))
     local TColorpicker = Tabs.Main:AddColorpicker("TransparencyColorpicker", {
         Title = "Colorpicker",
         Description = "but you can change the transparency.",
@@ -97,26 +101,27 @@ local Tabs = {
         Title = "KeyBind",
         Mode = "Toggle",
         Default = "LeftControl",
-        Callback = function(Value)
+        Callback = function(v)
             
         end
     })
+    Keybind:SetValue("MB2", "Toggle")
     local Input = Tabs.Main:AddInput("Input", {
         Title = "Input",
         Default = "Default",
         Placeholder = "Placeholder",
         Numeric = false, -- Only allows numbers
         Finished = false, -- Only calls callback when you press enter
-        Callback = function(Value)
-            print("Input changed:", Value)
+        Callback = function(v)
+
         end
     })
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
 SaveManager:IgnoreThemeSettings()
 SaveManager:SetIgnoreIndexes({})
-InterfaceManager:SetFolder("FluentScriptHub")
-SaveManager:SetFolder("FluentScriptHub/specific-game")
+InterfaceManager:SetFolder("AireszHub")
+    SaveManager:SetFolder("AireszHub/GameFolder")
 InterfaceManager:BuildInterfaceSection(Tabs.Settings)
 SaveManager:BuildConfigSection(Tabs.Settings)
 Window:SelectTab(1)
